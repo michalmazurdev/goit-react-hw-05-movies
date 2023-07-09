@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const fetchMoviesByKeyword = async query => {
   const response = await axios.get(
@@ -11,23 +11,22 @@ const fetchMoviesByKeyword = async query => {
 export const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchedPhrase, setSearchedPhrase] = useState('');
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const fetchData = async query => {
     const fetchedMovies = await fetchMoviesByKeyword(query);
-    console.log(fetchedMovies);
     setSearchedMovies(fetchedMovies);
   };
 
   useEffect(() => {
     fetchData(searchedPhrase);
-    console.log(fetchData(searchedPhrase));
   }, [searchedPhrase]);
 
   const searchPhrase = event => {
     event.preventDefault();
     const inputValue = event.target[0].value;
     setSearchedPhrase(inputValue);
+    navigate(`?${inputValue}`, { replace: false });
   };
 
   return (
