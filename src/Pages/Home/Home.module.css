@@ -1,3 +1,8 @@
 .listItem {
   display: block;
+  text-decoration: none;
+  color: black;
+}
+.listItem:hover {
+  color: orange;
 }

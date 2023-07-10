@@ -44,13 +44,15 @@ export const Movies = () => {
         {searchedMovies.length !== 0 && (
           <ul>
             {searchedMovies.map(movie => (
-              <Link
-                className={css.listItem}
-                key={movie.id}
-                to={`/movies/${movie.id}`}
-              >
-                {movie.title}
-              </Link>
+              <li>
+                <Link
+                  className={css.listItem}
+                  key={movie.id}
+                  to={`/movies/${movie.id}`}
+                >
+                  {movie.title}
+                </Link>
+              </li>
             ))}
           </ul>
         )}

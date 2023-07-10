@@ -37,15 +37,19 @@ export const Home = () => {
   return (
     <div>
       <h1>Movies trending today:</h1>
-      {trendingMovies.map(movie => (
-        <Link
-          className={css.listItem}
-          key={movie.id}
-          to={`/movies/${movie.id}`}
-        >
-          {movie.title}
-        </Link>
-      ))}
+      <ul>
+        {trendingMovies.map(movie => (
+          <li>
+            <Link
+              className={css.listItem}
+              key={movie.id}
+              to={`/movies/${movie.id}`}
+            >
+              {movie.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
