@@ -39,12 +39,8 @@ export const Home = () => {
       <h1>Movies trending today:</h1>
       <ul className={css.list}>
         {trendingMovies.map(movie => (
-          <li>
-            <Link
-              className={css.listItem}
-              key={movie.id}
-              to={`/movies/${movie.id}`}
-            >
+          <li key={movie.id}>
+            <Link className={css.listItem} to={`/movies/${movie.id}`}>
               {movie.title}
             </Link>
           </li>

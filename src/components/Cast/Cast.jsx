@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+// import css from './Cast.module.css';
 
 const fetchCast = async movieid => {
   const response = await axios.get(
@@ -15,9 +16,9 @@ export const Cast = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedMovie = await fetchCast(movieid);
-      // console.log(fetchCast(movieid));
-      setCast(fetchedMovie);
+      const fetchedMData = await fetchCast(movieid);
+      // console.log('cast', fetchCast(movieid));
+      setCast(fetchedMData);
     };
     fetchData();
   }, [movieid]);

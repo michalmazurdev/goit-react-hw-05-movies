@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+// import css from './Reviews.module.css';
 
 const fetchReviews = async movieid => {
   const response = await axios.get(
@@ -16,7 +17,7 @@ export const Reviews = () => {
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = await fetchReviews(movieid);
-      console.log('reviews', fetchReviews(movieid));
+      // console.log('reviews', fetchReviews(movieid));
       setReviews(fetchedData);
     };
     fetchData();
@@ -30,7 +31,7 @@ export const Reviews = () => {
           reviews.map(review => {
             return (
               <li key={review.id}>
-                <h3>Author: {review.author}</h3>
+                <h4>Author: {review.author}</h4>
                 <p>{review.content}</p>
               </li>
             );
