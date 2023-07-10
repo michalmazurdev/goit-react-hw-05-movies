@@ -3,6 +3,7 @@ import { Home } from '../Pages/Home/Home';
 import { NotFound } from '../Pages/NotFound/NotFound';
 import styled from 'styled-components';
 import { Movies } from 'Pages/Movies/Movies';
+import { MovieDetails } from 'Pages/MovieDetails/MovieDetails';
 const StyledLink = styled(NavLink)`
   color: black;
 
@@ -24,8 +25,9 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/movies/:movieid" element={<MovieDetails />}></Route>
+        MovieDetails
         {/* <Route path="" element={<></>}></Route>
-        <Route path="" element={<></>}></Route>
         <Route path="" element={<></>}></Route> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
