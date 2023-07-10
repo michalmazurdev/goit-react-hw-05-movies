@@ -26,5 +26,9 @@ export const MovieDetails = () => {
     console.log(movieid);
   }, [movieid]);
 
-  return <div>{movie && <span>{movie.original_title}</span>}</div>;
+  return (
+    <div>
+      {movie ? <span>{movie.original_title}</span> : <span>No such movie</span>}
+    </div>
+  );
 };
