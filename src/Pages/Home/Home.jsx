@@ -37,7 +37,7 @@ export const Home = () => {
     <div>
       <h1>Movies trending today:</h1>
       {trendingMovies.map(movie => (
-        <li>{movie.title}</li>
+        <li key={movie.id}>{movie.title}</li>
       ))}
     </div>
   );
