@@ -16,14 +16,12 @@ export const MovieDetails = () => {
 
   console.log(movieid);
 
-  const fetchData = async () => {
-    const fetchedMovie = await fetchMovieById(movieid);
-    setMovie(fetchedMovie);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const fetchedMovie = await fetchMovieById(movieid);
+      setMovie(fetchedMovie);
+    };
     fetchData();
-    // console.log(movieid);
   }, [movieid]);
 
   return (
