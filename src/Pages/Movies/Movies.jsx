@@ -1,6 +1,7 @@
 import axios from 'axios';
+import css from './Movies.module.css';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const fetchMoviesByKeyword = async query => {
   const response = await axios.get(
@@ -39,12 +40,17 @@ export const Movies = () => {
         ></input>
         <button type="submit">Search</button>
       </form>
-      {/* below div should be moved to spearate function component */}
       <div>
         {searchedMovies.length !== 0 && (
           <ul>
             {searchedMovies.map(movie => (
-              <li key={movie.id}>{movie.title}</li>
+              <Link
+                className={css.listItem}
+                key={movie.id}
+                to={`/movies/${movie.id}`}
+              >
+                {movie.title}
+              </Link>
             ))}
           </ul>
         )}

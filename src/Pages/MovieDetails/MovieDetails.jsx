@@ -25,8 +25,6 @@ export const MovieDetails = () => {
   }, [movieid]);
 
   return (
-    <div>
-      {movie ? <span>{movie.original_title}</span> : <span>No such movie</span>}
-    </div>
+    <div>{movie ? <span>{movie.title}</span> : <span>No such movie</span>}</div>
   );
 };

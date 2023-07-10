@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-// import css from './Home.module.css';
+import css from './Home.module.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // const API_KEY = '5e58d3162f5aafaf855cf7d900bbc361';
 
 // export const URL = 'https://api.themoviedb.org/3/';
@@ -37,7 +38,13 @@ export const Home = () => {
     <div>
       <h1>Movies trending today:</h1>
       {trendingMovies.map(movie => (
-        <li key={movie.id}>{movie.title}</li>
+        <Link
+          className={css.listItem}
+          key={movie.id}
+          to={`/movies/${movie.id}`}
+        >
+          {movie.title}
+        </Link>
       ))}
     </div>
   );

@@ -16,7 +16,7 @@ export const NavigationMenu = () => {
         <StyledLink to="/" end>
           Home
         </StyledLink>
-        <StyledLink to="/movies">About</StyledLink>
+        <StyledLink to="/movies">Movies</StyledLink>
       </nav>
       <Outlet />
     </div>
