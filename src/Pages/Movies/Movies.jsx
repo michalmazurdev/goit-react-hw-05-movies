@@ -27,7 +27,7 @@ export const Movies = () => {
     event.preventDefault();
     const inputValue = event.target[0].value;
     setSearchedPhrase(inputValue);
-    navigate(`?${inputValue}`, { replace: false });
+    navigate(`?query=${inputValue}`, { replace: false });
   };
 
   return (
@@ -42,14 +42,10 @@ export const Movies = () => {
       </form>
       <div>
         {searchedMovies.length !== 0 && (
-          <ul>
+          <ul className={css.list}>
             {searchedMovies.map(movie => (
-              <li>
-                <Link
-                  className={css.listItem}
-                  key={movie.id}
-                  to={`/movies/${movie.id}`}
-                >
+              <li key={movie.id}>
+                <Link className={css.listItem} to={`/movies/${movie.id}`}>
                   {movie.title}
                 </Link>
               </li>

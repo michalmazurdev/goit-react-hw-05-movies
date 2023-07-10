@@ -37,7 +37,7 @@ export const Home = () => {
   return (
     <div>
       <h1>Movies trending today:</h1>
-      <ul>
+      <ul className={css.list}>
         {trendingMovies.map(movie => (
           <li>
             <Link

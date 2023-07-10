@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import React from 'react';
 
 const fetchMovieById = async movieid => {
@@ -14,8 +14,6 @@ export const MovieDetails = () => {
   const { movieid } = useParams();
   const [movie, setMovie] = useState(null);
 
-  // console.log(movieid);
-
   useEffect(() => {
     const fetchData = async () => {
       const fetchedMovie = await fetchMovieById(movieid);
@@ -25,6 +23,13 @@ export const MovieDetails = () => {
   }, [movieid]);
 
   return (
-    <div>{movie ? <span>{movie.title}</span> : <span>No such movie</span>}</div>
+    <div>
+      {movie ? <span>{movie.title}</span> : <span>No such movie</span>}
+      <div>
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
+      </div>
+      <Outlet />
+    </div>
   );
 };
