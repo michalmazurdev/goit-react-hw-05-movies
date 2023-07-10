@@ -1,35 +1,23 @@
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Home } from '../Pages/Home/Home';
 import { NotFound } from '../Pages/NotFound/NotFound';
-import styled from 'styled-components';
 import { Movies } from 'Pages/Movies/Movies';
 import { MovieDetails } from 'Pages/MovieDetails/MovieDetails';
-const StyledLink = styled(NavLink)`
-  color: black;
-
-  &.active {
-    color: orange;
-  }
-`;
+import { NavigationMenu } from '../components/NavigationMenu/NavigationMenu';
 
 export const App = () => {
   return (
     <div>
-      <nav>
-        {' '}
-        <StyledLink to="/" end>
-          Home
-        </StyledLink>
-        <StyledLink to="/movies">About</StyledLink>
-      </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />}></Route>
-        <Route path="/movies/:movieid" element={<MovieDetails />}></Route>
-        MovieDetails
-        {/* <Route path="" element={<></>}></Route>
+        <Route path="/" element={<NavigationMenu />}>
+          <Route index element={<Home />} />
+          <Route path="/movies" element={<Movies />}></Route>
+          <Route path="/movies/:movieid" element={<MovieDetails />}></Route>
+          MovieDetails
+          {/* <Route path="" element={<></>}></Route>
         <Route path="" element={<></>}></Route> */}
-        <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Route>
       </Routes>
     </div>
   );
