@@ -23,7 +23,7 @@ export const MovieDetails = () => {
 
   useEffect(() => {
     fetchData();
-    console.log(movieid);
+    // console.log(movieid);
   }, [movieid]);
 
   return (
