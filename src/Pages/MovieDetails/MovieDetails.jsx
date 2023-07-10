@@ -14,7 +14,7 @@ export const MovieDetails = () => {
   const { movieid } = useParams();
   const [movie, setMovie] = useState(null);
 
-  console.log(movieid);
+  // console.log(movieid);
 
   useEffect(() => {
     const fetchData = async () => {
