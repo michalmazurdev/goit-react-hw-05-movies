@@ -9,7 +9,7 @@ const fetchMoviesByKeyword = async query => {
   );
   return response.data.results;
 };
-export const Movies = () => {
+const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchedPhrase = searchParams.get('query') ?? '';
@@ -65,3 +65,4 @@ export const Movies = () => {
     </div>
   );
 };
+export default Movies;

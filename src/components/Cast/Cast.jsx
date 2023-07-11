@@ -11,7 +11,7 @@ const fetchCast = async movieid => {
   return response.data.cast;
 };
 
-export const Cast = () => {
+const Cast = () => {
   const { movieid } = useParams();
   const [cast, setCast] = useState([]);
 
@@ -52,7 +52,6 @@ export const Cast = () => {
         </>
       ) : (
         <>
-          {' '}
           <h4>Cast</h4>
           <p>
             We are sorry, we do not have information on cast for this movie.
@@ -62,3 +61,4 @@ export const Cast = () => {
     </div>
   );
 };
+export default Cast;

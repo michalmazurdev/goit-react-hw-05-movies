@@ -10,7 +10,7 @@ const fetchReviews = async movieid => {
   return response.data.results;
 };
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieid } = useParams();
   const [reviews, setReviews] = useState([]);
 
@@ -49,3 +49,4 @@ export const Reviews = () => {
     </div>
   );
 };
+export default Reviews;

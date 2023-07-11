@@ -12,7 +12,7 @@ const fetchMovieById = async movieid => {
   return response.data;
 };
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieid } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -74,3 +74,4 @@ export const MovieDetails = () => {
     </>
   );
 };
+export default MovieDetails;
