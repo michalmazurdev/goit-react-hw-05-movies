@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import React from 'react';
 import css from './MovieDetails.module.css';
 import { convertGenres } from '../../services/convertGenres.js';
@@ -15,7 +15,8 @@ const fetchMovieById = async movieid => {
 export const MovieDetails = () => {
   const { movieid } = useParams();
   const [movie, setMovie] = useState(null);
-
+  const location = useLocation();
+  const link = location.state?.from ?? '/';
   useEffect(() => {
     const fetchData = async () => {
       const fetchedMovie = await fetchMovieById(movieid);
@@ -28,7 +29,10 @@ export const MovieDetails = () => {
   return (
     <>
       {movie ? (
-        <div>
+        <div className={css.container}>
+          <Link className={css.link} to={link}>
+            Go back
+          </Link>
           <div className={css.posterAndInfoContainer}>
             <div className={css.posterContainer}>
               <img

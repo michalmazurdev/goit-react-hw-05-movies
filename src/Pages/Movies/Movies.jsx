@@ -1,7 +1,7 @@
 import axios from 'axios';
 import css from './Movies.module.css';
 import { useEffect, useState } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, Link, useLocation } from 'react-router-dom';
 
 const fetchMoviesByKeyword = async query => {
   const response = await axios.get(
@@ -13,6 +13,8 @@ export const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchedPhrase = searchParams.get('query') ?? '';
+  const location = useLocation();
+
   const fetchData = async query => {
     const fetchedMovies = await fetchMoviesByKeyword(query);
     setSearchedMovies(fetchedMovies);
@@ -48,7 +50,11 @@ export const Movies = () => {
           <ul className={css.list}>
             {searchedMovies.map(movie => (
               <li key={movie.id}>
-                <Link className={css.listItem} to={`/movies/${movie.id}`}>
+                <Link
+                  className={css.listItem}
+                  to={`/movies/${movie.id}`}
+                  state={{ from: location }}
+                >
                   {movie.title}
                 </Link>
               </li>

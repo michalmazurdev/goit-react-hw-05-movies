@@ -1,20 +1,7 @@
 import { useEffect, useState } from 'react';
 import css from './Home.module.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-// const API_KEY = '5e58d3162f5aafaf855cf7d900bbc361';
-
-// export const URL = 'https://api.themoviedb.org/3/';
-// export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-// export const LANGUAGE = 'en-US';
-
-// const createSearchParams = query =>
-//   new URLSearchParams({
-//     query: query,
-//     api_key: KEY,
-//     language: LANGUAGE,
-//     include_adult: false,
-//   });
+import { Link, useLocation } from 'react-router-dom';
 
 const fetchTrendingToday = async () => {
   const response = await axios.get(
@@ -25,6 +12,7 @@ const fetchTrendingToday = async () => {
 
 export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
+  const location = useLocation();
 
   const fetchData = async () => {
     const fetchedMovies = await fetchTrendingToday();
@@ -40,7 +28,11 @@ export const Home = () => {
       <ul className={css.list}>
         {trendingMovies.map(movie => (
           <li key={movie.id}>
-            <Link className={css.listItem} to={`/movies/${movie.id}`}>
+            <Link
+              className={css.listItem}
+              to={`/movies/${movie.id}`}
+              state={{ from: location }}
+            >
               {movie.title}
             </Link>
           </li>

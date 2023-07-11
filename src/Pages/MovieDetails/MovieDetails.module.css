@@ -1,11 +1,13 @@
-.posterAndInfoContainer {
+.container {
   padding: 20px;
+}
+.posterAndInfoContainer {
+  padding: 20px 0;
   display: flex;
   gap: 15px;
   border-bottom: 1px solid grey;
 }
 .additionalInfoContainer {
-  padding-left: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid grey;
   display: flex;
