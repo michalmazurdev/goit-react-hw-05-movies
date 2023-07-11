@@ -20,7 +20,7 @@ export const MovieDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       const fetchedMovie = await fetchMovieById(movieid);
-      console.log('MovieDetails', fetchMovieById(movieid));
+      // console.log('MovieDetails', fetchMovieById(movieid));
       setMovie(fetchedMovie);
     };
     fetchData();
