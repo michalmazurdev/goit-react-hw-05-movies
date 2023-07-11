@@ -11,8 +11,6 @@ const fetchMoviesByKeyword = async query => {
 };
 export const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
-  // const [searchedPhrase, setSearchedPhrase] = useState('');
-  // const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchedPhrase = searchParams.get('query') ?? '';
   const fetchData = async query => {
@@ -33,9 +31,6 @@ export const Movies = () => {
     setSearchParams({ query: inputValue });
     const form = event.currentTarget;
     form.reset();
-
-    // setSearchedPhrase(inputValue);
-    // navigate(`?query=${inputValue}`, { replace: false });
   };
 
   return (

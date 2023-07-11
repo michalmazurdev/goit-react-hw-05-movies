@@ -12,12 +12,12 @@ const fetchCast = async movieid => {
 
 export const Cast = () => {
   const { movieid } = useParams();
-  const [cast, setCast] = useState(null);
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const fetchedMData = await fetchCast(movieid);
-      // console.log('cast', fetchCast(movieid));
+      console.log('cast', fetchCast(movieid));
       setCast(fetchedMData);
     };
     fetchData();
@@ -25,24 +25,35 @@ export const Cast = () => {
 
   return (
     <div className={css.castContainer}>
-      <h4>Cast</h4>
-      <ul className={css.castList}>
-        {cast &&
-          cast.map(person => (
-            <li key={person.id}>
-              <div className={css.imageContainer}>
-                <img
-                  className={css.image}
-                  src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
-                  alt=""
-                />
-              </div>
-              <p className={css.castInfo}>{person.original_name}</p>
-              <p className={css.castInfo}>as</p>
-              <p className={css.castInfo}>{person.character}</p>
-            </li>
-          ))}
-      </ul>
+      {cast.length !== 0 ? (
+        <>
+          <h4>Cast</h4>
+          <ul className={css.castList}>
+            {cast.map(person => (
+              <li key={person.id}>
+                <div className={css.imageContainer}>
+                  <img
+                    className={css.image}
+                    src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                    alt=""
+                  />
+                </div>
+                <p className={css.castInfo}>{person.original_name}</p>
+                <p className={css.castInfo}>as</p>
+                <p className={css.castInfo}>{person.character}</p>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <>
+          {' '}
+          <h4>Cast</h4>
+          <p>
+            We are sorry, we do not have information on cast for this movie.
+          </p>
+        </>
+      )}
     </div>
   );
 };
