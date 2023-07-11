@@ -25,7 +25,6 @@ export const Reviews = () => {
 
   return (
     <div>
-      <span>'reviews: '{movieid}</span>
       <ul>
         {reviews &&
           reviews.map(review => {

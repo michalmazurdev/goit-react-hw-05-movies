@@ -31,7 +31,7 @@ export const Movies = () => {
   };
 
   return (
-    <div>
+    <div className={css.moviesContainer}>
       <form onSubmit={searchPhrase}>
         <input
           type="text"

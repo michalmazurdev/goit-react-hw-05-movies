@@ -35,7 +35,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className={css.homeContainer}>
       <h1>Movies trending today:</h1>
       <ul className={css.list}>
         {trendingMovies.map(movie => (

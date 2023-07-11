@@ -1,0 +1,24 @@
+.castContainer {
+  padding: 20px;
+}
+.imageContainer {
+  width: 100px;
+  height: 150px;
+}
+.image {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.castList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+.castInfo {
+  margin: 0;
+}

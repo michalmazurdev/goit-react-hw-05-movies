@@ -1,0 +1,32 @@
+.posterAndInfoContainer {
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  border-bottom: 1px solid grey;
+}
+.additionalInfoContainer {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+}
+.posterContainer {
+  width: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.poster {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  color: orange;
+}

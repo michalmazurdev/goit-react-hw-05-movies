@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import css from './Cast.module.css';
+import css from './Cast.module.css';
 
 const fetchCast = async movieid => {
   const response = await axios.get(
@@ -22,12 +22,26 @@ export const Cast = () => {
     };
     fetchData();
   }, [movieid]);
+
   return (
-    <div>
-      <span>'cast: '{movieid}</span>
-      <ul>
+    <div className={css.castContainer}>
+      <h4>Cast</h4>
+      <ul className={css.castList}>
         {cast &&
-          cast.map(person => <li key={person.id}>{person.original_name}</li>)}
+          cast.map(person => (
+            <li key={person.id}>
+              <div className={css.imageContainer}>
+                <img
+                  className={css.image}
+                  src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                  alt=""
+                />
+              </div>
+              <p className={css.castInfo}>{person.original_name}</p>
+              <p className={css.castInfo}>as</p>
+              <p className={css.castInfo}>{person.character}</p>
+            </li>
+          ))}
       </ul>
     </div>
   );
