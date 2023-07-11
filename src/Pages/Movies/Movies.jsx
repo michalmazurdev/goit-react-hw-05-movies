@@ -10,7 +10,7 @@ const fetchMoviesByKeyword = async query => {
   return response.data.results;
 };
 const Movies = () => {
-  const [searchedMovies, setSearchedMovies] = useState(null);
+  const [searchedMovies, setSearchedMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchedPhrase = searchParams.get('query') ?? '';
   const location = useLocation();
