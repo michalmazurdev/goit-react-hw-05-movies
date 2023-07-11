@@ -17,7 +17,6 @@ const Reviews = () => {
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = await fetchReviews(movieid);
-      // console.log('reviews', fetchReviews(movieid));
       setReviews(fetchedData);
     };
     fetchData();
