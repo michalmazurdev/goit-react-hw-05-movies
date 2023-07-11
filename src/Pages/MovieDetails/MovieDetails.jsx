@@ -54,7 +54,7 @@ export const MovieDetails = () => {
             </div>
           </div>
           <div className={css.additionalInfoContainer}>
-            <p>Additional information:</p>
+            <h4>Additional information:</h4>
             <Link className={css.link} to="cast">
               Cast
             </Link>

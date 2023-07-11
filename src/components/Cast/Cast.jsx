@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import photoMissing from './photoMissing.png';
 import css from './Cast.module.css';
 
 const fetchCast = async movieid => {
@@ -32,11 +33,15 @@ export const Cast = () => {
             {cast.map(person => (
               <li key={person.id}>
                 <div className={css.imageContainer}>
-                  <img
-                    className={css.image}
-                    src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
-                    alt=""
-                  />
+                  {person.profile_path ? (
+                    <img
+                      className={css.image}
+                      src={`https://image.tmdb.org/t/p/w500${person.profile_path}`}
+                      alt=""
+                    />
+                  ) : (
+                    <img className={css.image} src={photoMissing} alt="" />
+                  )}
                 </div>
                 <p className={css.castInfo}>{person.original_name}</p>
                 <p className={css.castInfo}>as</p>
