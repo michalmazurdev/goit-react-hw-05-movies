@@ -1,7 +1,7 @@
 import axios from 'axios';
 import css from './Movies.module.css';
 import { useEffect, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 
 const fetchMoviesByKeyword = async query => {
   const response = await axios.get(
@@ -11,9 +11,10 @@ const fetchMoviesByKeyword = async query => {
 };
 export const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
-  const [searchedPhrase, setSearchedPhrase] = useState('');
-  const navigate = useNavigate();
-
+  // const [searchedPhrase, setSearchedPhrase] = useState('');
+  // const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchedPhrase = searchParams.get('query') ?? '';
   const fetchData = async query => {
     const fetchedMovies = await fetchMoviesByKeyword(query);
     setSearchedMovies(fetchedMovies);
@@ -26,8 +27,15 @@ export const Movies = () => {
   const searchPhrase = event => {
     event.preventDefault();
     const inputValue = event.target[0].value;
-    setSearchedPhrase(inputValue);
-    navigate(`?query=${inputValue}`, { replace: false });
+    if (inputValue === '') {
+      return;
+    }
+    setSearchParams({ query: inputValue });
+    const form = event.currentTarget;
+    form.reset();
+
+    // setSearchedPhrase(inputValue);
+    // navigate(`?query=${inputValue}`, { replace: false });
   };
 
   return (
