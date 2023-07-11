@@ -1,3 +1,3 @@
 export const NotFound = () => {
-  return <h2>Seems like this page does exist 💔</h2>;
+  return <h2>404 Seems like this page does not exist 💔</h2>;
 };
